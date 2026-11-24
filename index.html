@@ -6,7 +6,7 @@
 <title>Hardik Sakpal Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 /* VOICE confident engineer's portfolio, quiet and precise
    IDEA a control-room view of his own agent: a question routed through a local LLM to tools, answers coming back
@@ -66,7 +66,8 @@ p,ul.pts li{text-align:justify;hyphens:auto}
 .stat span{color:var(--mute);font-size:15px}
 .about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px}
 .about p+p{margin-top:14px}
-.facts{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;display:grid;gap:14px;align-content:start}
+.facts{align-self:start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;display:grid;gap:14px;align-content:start}
+.facts span{text-align:left}
 .facts div{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px;font-size:15px}
 .facts dt,.facts .k{color:var(--mute)}
 .tl{list-style:none;margin:0;padding:0;position:relative}
@@ -95,6 +96,43 @@ strong{color:var(--ink)}
 .contact h2{margin-bottom:12px}
 .addr{font:700 clamp(18px,2.4vw,24px) Manrope,sans-serif;overflow-wrap:anywhere}
 footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding:22px max(5vw,16px)}
+.eye{font:500 14px "DM Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:14px;margin-bottom:22px;text-align:left}
+.eye .ln{width:40px;height:1px;background:#8fa86b}
+.hero h1{font-size:clamp(38px,5.1vw,66px);font-weight:500;letter-spacing:-.035em;line-height:1.04}
+h1 em,h2 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+.hero h1 em{color:var(--blue)}
+.hero .lead{margin-top:24px}
+.top{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:center;gap:clamp(28px,4vw,56px)}
+.photo{margin:0;position:relative}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:62% 30%;border-radius:20px;border:1px solid var(--line)}
+.tagline{margin-top:30px;font:500 14px "DM Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#c8d6ff;text-align:center}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.totop{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--ink);text-decoration:none;font-weight:500}
+.totop:hover,.totop:focus-visible{color:var(--blue);outline:none}
+.photo::after{content:"";position:absolute;inset:14px -14px 50px 14px;border:1px solid var(--blue);border-radius:20px;z-index:-1;opacity:.5}
+.xl{display:flex;flex-wrap:wrap;gap:8px 30px;margin-top:26px}
+.xl a{display:inline-flex;align-items:center;gap:8px;min-height:44px;text-decoration:none;font-weight:500;color:var(--ink);border-bottom:1px solid transparent}
+.xl a:hover,.xl a:focus-visible{border-bottom-color:currentColor;outline:none}
+.xl a span{font-size:18px}
+.talk{--g:#243427;background:var(--g);color:#eef2ea}
+.tgrid{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,1fr);gap:32px;align-items:center}
+.talk .eye{color:#d6e4c6;margin-bottom:28px}
+.talk .d{width:9px;height:9px;border-radius:50%;background:#a9c98a}
+.big{font-size:clamp(42px,6.2vw,88px);font-weight:500;letter-spacing:-.04em;line-height:1;margin:0;color:#eef2fb}
+.big em{color:#d4e4bf}
+.talk .xl a{color:#eef2ea}
+.mail2{color:#b9c8ae;font-size:14px;margin-top:4px;text-align:left}
+.paper{display:inline-flex;align-items:center;min-height:62px;padding:0 28px;margin-top:22px;background:#f2f0ea;color:#243427;text-decoration:none;font-size:17px}
+.paper:hover{background:#fff}
+.paper:focus-visible{outline:2px solid #d4e4bf;outline-offset:3px}
+.rings{width:100%;max-width:420px;justify-self:center}
+.rings circle{fill:none;stroke:#3d5240;stroke-width:1}
+.star line{stroke:#c9ddb0;stroke-width:2.5;stroke-linecap:round}
+.star{transform-origin:200px 200px;animation:spin 24s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:860px){.tgrid{grid-template-columns:minmax(0,1fr)}.rings{max-width:150px;justify-self:start;order:-1}.photo{max-width:360px}}
+@media(prefers-reduced-motion:reduce){.star{animation:none}}
+
 @media(max-width:860px){.live{grid-template-columns:minmax(0,1fr)}.top,.about,.contact{grid-template-columns:minmax(0,1fr)}.proj,.skills,.edu{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.links a{padding:10px 8px;font-size:14px}.fig{height:460px}.tl>li{padding-left:32px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -102,25 +140,26 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
 </head>
 <body>
 <nav><div class="wrap">
-  <a class="logo" href="#top">Hardik<span>.</span></a>
+  <a class="logo" href="#top">HRS<span>.</span></a>
   <div class="links">
-    <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">What I work with</a><a href="#contact">Contact</a>
+    <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">What I work with</a><a href="#contact">Contact</a><a href="Hardik_Ravindra_Sakpal_CV.pdf" target="_blank" rel="noopener">Resume</a>
   </div>
 </div></nav>
 
 <header class="band hero" id="top"><div class="wrap">
   <div class="top">
     <div>
-      <h1>Hardik Ravindra Sakpal</h1>
-      <p class="role">AI Engineer · AI Agents &amp; Deep Learning</p>
-    </div>
-    <div>
-      <p class="lead">I build AI agents and deep learning models that turn manual, broken processes into automated systems: a production-ready LangGraph agent that optimizes process settings on its own, a RAG assistant on a locally hosted LLM, and neural networks for detection and prediction.</p>
-      <div class="btns">
-        <a class="btn main" href="#projects">See my work</a>
-        <a class="btn" href="mailto:hardiksakpal97@outlook.com">Email me</a>
+      <p class="eye"><span class="ln"></span>Hello, I'm Hardik Ravindra Sakpal</p>
+      <h1>Building reliable<br><em>AI systems.</em><br>Exploring AI safety.</h1>
+      <p class="lead">I'm an AI engineer who builds AI agents and deep learning models that turn manual, broken processes into automated systems: a production-ready LangGraph agent that optimizes process settings on its own, a RAG assistant on a locally hosted LLM, and neural networks for detection and prediction.</p>
+      <div class="xl">
+        <a href="https://www.linkedin.com/in/hardikrsakpal/" target="_blank" rel="noopener">Connect on LinkedIn <span>↗</span></a>
+        <a href="https://github.com/hardiksakpal6" target="_blank" rel="noopener">Explore GitHub <span>↗</span></a>
+        <a href="mailto:hardiksakpal97@outlook.com">Email me</a>
       </div>
+      <div class="btns"><a class="btn main" href="Hardik_Ravindra_Sakpal_CV.pdf" target="_blank" rel="noopener" download>Download resume</a><a class="btn" href="#projects">See my work</a></div>
     </div>
+    <figure class="photo"><img src="hardik.jpg" alt="Hardik Ravindra Sakpal smiling on a hillside above a river town" width="640" height="640"><figcaption class="tagline">Engineer · Researcher</figcaption></figure>
   </div>
   <div class="live">
     <div class="fig" id="fig" role="img" aria-label="Animated run of Hardik's production LangGraph agent: several users send questions, the agent running a local Qwen2.5 model picks a tool at each step, saves its state to a checkpoint, and returns the answer, all on local infrastructure."><svg id="g"></svg></div>
@@ -144,10 +183,11 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
     <h2>About</h2>
     <p>I'm an AI engineer focused on AI agents and deep learning, with an M.Sc. in Computational Sciences in Engineering from TU Braunschweig. I design agents that choose and run tools on their own, and I build neural networks, CNNs and computer-vision models for detection and prediction in industrial processes.</p>
     <p>I benchmark models before choosing them and validate results on unseen data. I built a RAG assistant on a locally hosted LLM and, on my own initiative, a multi-user, restart-safe, fully local AI agent with 8 tools that optimizes process settings automatically.</p>
+    <p>Alongside this, I'm exploring AI safety. I'm currently working on an AI evaluation project focused on hallucinations: testing how and when LLMs produce confident but unsupported answers, and how to measure it reliably.</p>
     <p>I'm hands-on in Python, SQL, FastAPI, Docker, Kubernetes and CI/CD.</p>
   </div>
   <div class="facts">
-    <div><span class="k">Focus</span><span>AI agents, deep learning, LangGraph agents, RAG, local LLMs, CNNs, computer vision</span></div>
+    <div><span class="k">Focus</span><span>AI agents, deep learning, AI safety, LLM evaluation, LangGraph agents, RAG, local LLMs, CNNs, computer vision</span></div>
     <div><span class="k">Education</span><span>M.Sc. Computational Sciences in Engineering, TU Braunschweig</span></div>
     <div><span class="k">Languages</span><span>English (C1), German (B2)</span></div>
     <div><span class="k">Award</span><span>1st Place, Neural Art Contest, DLR &amp; TU Braunschweig</span></div>
@@ -175,18 +215,22 @@ footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding
   </div>
 </div></section>
 
-<section class="band" id="contact"><div class="wrap contact">
+<section class="band talk" id="contact"><div class="wrap tgrid">
   <div>
-    <h2>Let's build something useful</h2>
-    <p class="lead">Open to AI/ML engineering roles in agentic AI, RAG and LLM systems. The quickest way to reach me is email.</p>
+    <p class="eye dot"><span class="d"></span>Open to good conversations</p>
+    <h2 class="big">Have a thoughtful<br><em>problem to solve?</em></h2>
+    <div class="xl">
+      <a href="https://www.linkedin.com/in/hardikrsakpal/" target="_blank" rel="noopener">Connect on LinkedIn <span>↗</span></a>
+      <a href="https://github.com/hardiksakpal6" target="_blank" rel="noopener">Explore GitHub <span>↗</span></a>
+      <a href="mailto:hardiksakpal97@outlook.com">Email me</a>
+    </div>
+    <p class="mail2">hardiksakpal97@outlook.com</p>
+    <a class="paper" href="Hardik_Ravindra_Sakpal_CV.pdf" target="_blank" rel="noopener" download>Download resume</a>
   </div>
-  <div>
-    <p class="addr">hardiksakpal97@outlook.com</p>
-    <div class="btns"><a class="btn main" href="mailto:hardiksakpal97@outlook.com">Send an email</a></div>
-  </div>
+  <svg class="rings" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="196"/><circle cx="200" cy="200" r="130"/><g class="star"><line x1="200" y1="176" x2="200" y2="224"/><line x1="176" y1="200" x2="224" y2="200"/><line x1="183" y1="183" x2="217" y2="217"/><line x1="217" y1="183" x2="183" y2="217"/></g></svg>
 </div></section>
 
-<footer><div class="wrap">© 2026 Hardik Ravindra Sakpal</div></footer>
+<footer><div class="wrap foot"><span>© 2026 Hardik Ravindra Sakpal</span><a class="totop" href="#top">Back to top <span aria-hidden="true">↑</span></a></div></footer>
 
 <script>
 {
