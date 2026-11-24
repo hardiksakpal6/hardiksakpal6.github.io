@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hardik Sakpal Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+/* VOICE confident engineer's portfolio, quiet and precise
+   IDEA a control-room view of his own agent: a question routed through a local LLM to tools, answers coming back
+   PICTURE full-width live graph of the LangGraph agent: user, agent, local model, five tool families, a token travelling the route
+   COLOUR deep night ground #080d19 (as in the reference), white ink, electric blue #5b8cff lead, coral #ff7a59 accent for results
+   TYPE Manrope 800 display + DM Sans text
+   LAYOUT laptop: name and lead across the top, graph band beneath, figures strip; phone: stacked, graph shorter */
+:root{color-scheme:dark;--bg:#080d19;--bg2:#0e1527;--card:#121b31;--line:#22304f;--ink:#eef2fb;--mute:#9aa7c4;--blue:#5b8cff;--coral:#ff7a59}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "DM Sans",system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+h1,h2,h3{font-family:Manrope,system-ui,sans-serif;letter-spacing:-.02em;line-height:1.08;margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:28px}
+h3{font-size:19px}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto}
+.band{padding:clamp(40px,6vw,88px) max(5vw,16px)}
+.alt{background:var(--bg2)}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(5vw,16px);flex-wrap:wrap}
+.logo{font:800 18px Manrope,sans-serif;text-decoration:none}
+.logo span{color:var(--blue)}
+.links{display:flex;gap:4px;flex-wrap:wrap}
+.links a{text-decoration:none;color:var(--mute);padding:10px 12px;border-radius:8px;font-size:15px}
+.links a:hover,.links a:focus-visible{color:var(--ink);background:var(--card);outline:none}
+.hero{padding-bottom:0}
+.hero h1{font-size:clamp(44px,7vw,84px)}
+.role{font:700 clamp(19px,2.2vw,24px) Manrope,sans-serif;color:var(--blue);margin-top:14px}
+.top{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:32px;align-items:end}
+.lead{color:var(--mute);font-size:17px;max-width:62ch}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:10px;font-weight:700;text-decoration:none;border:1px solid var(--line)}
+.btn.main{background:var(--blue);border-color:var(--blue);color:#06102a}
+.btn:hover{filter:brightness(1.1)}
+.btn:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+.mail{margin-top:12px;color:var(--mute);font-size:14px}
+p,ul.pts li{text-align:justify;hyphens:auto}
+.lead{text-align:justify}
+.live{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:20px;margin-top:28px;align-items:stretch}
+.fig{position:relative;height:clamp(340px,36vw,430px)}
+.log{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;display:flex;flex-direction:column}
+.logh{display:flex;justify-content:space-between;gap:10px;font-size:15px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.logh span{color:var(--coral);white-space:nowrap}
+#log{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px;flex:1;align-content:start}
+#log li{font-size:14px;line-height:1.45;padding-left:14px;border-left:2px solid var(--line);color:var(--mute);text-align:left}
+#log li.on{border-color:var(--coral);color:var(--ink)}
+#log li i{font-style:normal;color:var(--blue)}
+.note{font-size:13px;color:var(--mute);margin-top:10px}
+.fig .gl{fill:var(--mute);font-size:13px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.fig text{font:500 14px "DM Sans",sans-serif;fill:var(--ink);paint-order:stroke;stroke:var(--bg);stroke-width:5px}
+.fig .sub{fill:var(--mute);font-size:13px}
+.cap{color:var(--mute);font-size:14px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(11em,1fr));gap:20px;padding:32px 0 8px}
+.stat b{display:block;font:800 clamp(32px,4vw,44px) Manrope,sans-serif;color:var(--coral);white-space:nowrap}
+.stat span{color:var(--mute);font-size:15px}
+.about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px}
+.about p+p{margin-top:14px}
+.facts{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;display:grid;gap:14px;align-content:start}
+.facts div{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px;font-size:15px}
+.facts dt,.facts .k{color:var(--mute)}
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl>li{position:relative;padding-left:40px;padding-bottom:40px}
+.tl>li:last-child{padding-bottom:0}
+.tl>li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--blue)}
+.head{display:flex;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;align-items:baseline}
+.when{color:var(--mute);font-size:15px;white-space:nowrap}
+.org{color:var(--blue);font-weight:500;margin-top:4px}
+.what{font-style:italic;color:var(--mute);font-size:15px;margin-top:2px}
+ul.pts{margin:12px 0 0;padding-left:20px;color:#cdd5e8;max-width:80ch}
+ul.pts li{margin-top:6px}
+ul.pts li::marker{color:var(--blue)}
+strong{color:var(--ink)}
+.proj{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column}
+.card .meta{color:var(--mute);font-size:14px;margin-top:6px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:18px}
+.tags span{font-size:13px;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--blue) 16%,transparent);color:#c8d6ff}
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.skills .card h3{margin-bottom:14px}
+.skills .tags{margin-top:0;padding-top:0}
+.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:22px}
+.contact{text-align:left;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:center}
+.contact h2{margin-bottom:12px}
+.addr{font:700 clamp(18px,2.4vw,24px) Manrope,sans-serif;overflow-wrap:anywhere}
+footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding:22px max(5vw,16px)}
+@media(max-width:860px){.live{grid-template-columns:minmax(0,1fr)}.top,.about,.contact{grid-template-columns:minmax(0,1fr)}.proj,.skills,.edu{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.links a{padding:10px 8px;font-size:14px}.fig{height:460px}.tl>li{padding-left:32px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top">Hardik<span>.</span></a>
+  <div class="links">
+    <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">What I work with</a><a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<header class="band hero" id="top"><div class="wrap">
+  <div class="top">
+    <div>
+      <h1>Hardik Ravindra Sakpal</h1>
+      <p class="role">AI Engineer · AI Agents &amp; Deep Learning</p>
+    </div>
+    <div>
+      <p class="lead">I build AI agents and deep learning models that turn manual, broken processes into automated systems: a production-ready LangGraph agent that optimizes process settings on its own, a RAG assistant on a locally hosted LLM, and neural networks for detection and prediction.</p>
+      <div class="btns">
+        <a class="btn main" href="#projects">See my work</a>
+        <a class="btn" href="mailto:hardiksakpal97@outlook.com">Email me</a>
+      </div>
+    </div>
+  </div>
+  <div class="live">
+    <div class="fig" id="fig" role="img" aria-label="Animated run of Hardik's production LangGraph agent: several users send questions, the agent running a local Qwen2.5 model picks a tool at each step, saves its state to a checkpoint, and returns the answer, all on local infrastructure."><svg id="g"></svg></div>
+    <div class="log" aria-live="off">
+      <div class="logh"><b>Production AI agent</b><span id="stepn">Step 1</span></div>
+      <ol id="log"></ol>
+      <p class="note">Example run, for illustration.</p>
+    </div>
+  </div>
+  <p class="cap">My production agent at work: at every step it decides which tool to call next, saves its state so it survives a restart, and serves several users at once, entirely on local infrastructure.</p>
+  <div class="stats">
+    <div class="stat"><b>8 tools</b><span>chosen at run time by my LangGraph agent</span></div>
+    <div class="stat"><b>+20%</b><span>spark detection accuracy</span></div>
+    <div class="stat"><b>&gt;90%</b><span>leakage detection accuracy at DLR</span></div>
+    <div class="stat"><b>R² 0.95</b><span>cross-machine particle size prediction</span></div>
+  </div>
+</div></header>
+
+<section class="band" id="about"><div class="wrap about">
+  <div>
+    <h2>About</h2>
+    <p>I'm an AI engineer focused on AI agents and deep learning, with an M.Sc. in Computational Sciences in Engineering from TU Braunschweig. I design agents that choose and run tools on their own, and I build neural networks, CNNs and computer-vision models for detection and prediction in industrial processes.</p>
+    <p>I benchmark models before choosing them and validate results on unseen data. I built a RAG assistant on a locally hosted LLM and, on my own initiative, a multi-user, restart-safe, fully local AI agent with 8 tools that optimizes process settings automatically.</p>
+    <p>I'm hands-on in Python, SQL, FastAPI, Docker, Kubernetes and CI/CD.</p>
+  </div>
+  <div class="facts">
+    <div><span class="k">Focus</span><span>AI agents, deep learning, LangGraph agents, RAG, local LLMs, CNNs, computer vision</span></div>
+    <div><span class="k">Education</span><span>M.Sc. Computational Sciences in Engineering, TU Braunschweig</span></div>
+    <div><span class="k">Languages</span><span>English (C1), German (B2)</span></div>
+    <div><span class="k">Award</span><span>1st Place, Neural Art Contest, DLR &amp; TU Braunschweig</span></div>
+  </div>
+</div></section>
+
+<section class="band alt" id="experience"><div class="wrap">
+  <h2>Experience</h2>
+  <ol class="tl" id="exp"></ol>
+</div></section>
+
+<section class="band" id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <div class="proj" id="proj"></div>
+</div></section>
+
+<section class="band alt" id="skills"><div class="wrap">
+  <h2>What I work with</h2>
+  <div class="skills" id="sk"></div>
+  <div class="edu">
+    <div class="card"><h3>Technische Universität Braunschweig</h3><p class="meta">M.Sc. Computational Sciences in Engineering · 2025</p>
+      <p style="margin-top:12px;color:#cdd5e8;font-size:15px">Machine Learning with Neural Networks, Pattern Recognition, Scientific Machine Learning, Data-Driven Material Modeling, Numerical Methods for ODEs/PDEs, Advanced Computerlab Data Science</p></div>
+    <div class="card"><h3>1st Place, Neural Art Contest</h3><p class="meta">WS 2022/23</p>
+      <p style="margin-top:12px;color:#cdd5e8;font-size:15px">Advanced Data Science Lab, DLR Institute of Lightweight Systems &amp; TU Braunschweig.</p></div>
+  </div>
+</div></section>
+
+<section class="band" id="contact"><div class="wrap contact">
+  <div>
+    <h2>Let's build something useful</h2>
+    <p class="lead">Open to AI/ML engineering roles in agentic AI, RAG and LLM systems. The quickest way to reach me is email.</p>
+  </div>
+  <div>
+    <p class="addr">hardiksakpal97@outlook.com</p>
+    <div class="btns"><a class="btn main" href="mailto:hardiksakpal97@outlook.com">Send an email</a></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">© 2026 Hardik Ravindra Sakpal</div></footer>
+
+<script>
+{
+const exp = [
+  {role:'AI Researcher: Master Thesis', org:'Institute of Particle Technology, TU Braunschweig', when:'10/2024 – 03/2025', what:'LLM-Based Digital Twin for Industrial Process Optimization Tool', pts:[
+    "<strong>Problem:</strong> the institute's grinding digital twin could simulate process configurations, but operators still had to manually enter parameters and interpret the output.",
+    "Architected the <strong>Particle Expert RAG Tool</strong>, a chatbot-style assistant integrated into particleOS.ai. Selected <strong>LLaMA 3.1 8B via Ollama</strong> after benchmarking it against GPT-J, Falcon, Mistral and other LLaMA models, so data stays on institute infrastructure.",
+    "Designed <strong>three pipelines behind one conversational interface</strong>: RAG with FAISS over papers, experiments and manuals; data analysis where the system writes, runs and debugs its own Python; and prediction with any pre-trained ML model.",
+    "Showed on real grinding-process data that someone with zero coding experience could go from raw data to a chart, prediction or sourced answer by typing a question."]},
+  {role:'AI Researcher', org:'Institute of Particle Technology, TU Braunschweig', when:'11/2023 – 08/2024', what:'Spark Detection using Computer Vision Methods', pts:[
+    "Created and pre-processed image/video datasets, applying normalization and transformation for cleaner, more consistent input data.",
+    "Developed object-detection algorithms, <strong>improving spark detection accuracy by 20%</strong> through model tuning and improved data handling.",
+    "Delivered detection outputs for research into battery fire and venting behavior, reducing manual video review for the team."]},
+  {role:'AI Researcher', org:'DLR, Hamburg', when:'12/2022 – 04/2023', what:'Neural Networks for Leakage Detection', pts:[
+    "Vacuum-assisted manufacturing had no automated way to catch leakage events in real time.",
+    "Built a TensorFlow/Keras neural network detecting leakage from process data with <strong>over 90% accuracy</strong>.",
+    "Used data augmentation and systematic hyperparameter optimization so the model held up on unseen process runs despite limited data."]},
+  {role:'AI Researcher', org:'PLRI, Braunschweig', when:'01/2022 – 04/2022', what:'Medical Computer-Vision Classification', pts:[
+    "Built and evaluated CNN models with transfer learning on heart-disease, brain-tumor and cell-phenotype imaging datasets."]}
+];
+const proj = [
+  {t:'Production-Grade Agentic AI System for Process Optimization', m:'Independent project · 09/2026', pts:[
+    "Built a <strong>production-ready AI agent with LangGraph</strong> and a locally hosted Qwen2.5 model that decides at run time which step to take next.",
+    "Designed the agent to independently choose and run the right tool from <strong>a set of 8</strong> covering data analysis, chart generation, predictions, optimization and document search.",
+    "An <strong>automatic optimisation feature</strong> replaces manual guess-and-check when searching for the best process settings.",
+    "Multi-user, restart-safe and fully local, with no cloud dependency."], tags:['LangGraph','Qwen2.5','Ollama','Python','Agentic AI']},
+  {t:'AI-based Process Translator Framework', m:'Studienarbeit, Institute of Particle Technology · 12/2023 – 05/2024', pts:[
+    "Scaling a milling process from lab to pilot scale meant repeating every experiment on the bigger machine.",
+    "Built two neural networks for the LabStar and PML1 mills and combined them with <strong>ensemble stacking</strong> into one Translator model that predicts one machine's output from the other's data.",
+    "Found that <strong>60% of the data</strong> was enough to keep accuracy high, a benchmark for how many experiments are really needed.",
+    "Reached <strong>R² of 0.95 (LabStar) and 0.82 (PML1)</strong> on new data; proposed transfer and active learning as next steps."], tags:['TensorFlow','Keras','Ensemble stacking','Battery materials']}
+];
+const skills = [
+  ['AI agents & LLM systems',['LangGraph agents with tool use','RAG pipelines','FAISS vector search','LLM selection & benchmarking','Evaluation on unseen data','Prompt-driven code generation','Local LLMs (Ollama)']],
+  ['Deep learning & ML',['Deep Learning','CNNs','Computer Vision','Ensemble stacking','Feature Engineering','Model Evaluation','End-to-end ML pipelines']],
+  ['Backend & infrastructure',['Python','SQL','FastAPI','Multi-user, restart-safe services','Docker','Kubernetes','CI/CD','Git','MLflow','DVC']],
+  ['Libraries & tools',['TensorFlow','PyTorch','Keras','Hugging Face Transformers','LangChain','LlamaIndex','scikit-learn','OpenCV','NumPy','Pandas','Streamlit','C++','Java']]
+];
+document.getElementById('exp').innerHTML = exp.map(e => `<li><div class="head"><h3>${e.role}</h3><span class="when">${e.when}</span></div><p class="org">${e.org}</p>${e.what?`<p class="what">${e.what}</p>`:''}<ul class="pts">${e.pts.map(p=>`<li>${p}</li>`).join('')}</ul></li>`).join('');
+document.getElementById('proj').innerHTML = proj.map(p => `<article class="card"><h3>${p.t}</h3><p class="meta">${p.m}</p><ul class="pts">${p.pts.map(x=>`<li>${x}</li>`).join('')}</ul><div class="tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div></article>`).join('');
+document.getElementById('sk').innerHTML = skills.map(([h,l]) => `<div class="card"><h3>${h}</h3><div class="tags">${l.map(t=>`<span>${t}</span>`).join('')}</div></div>`).join('');
+
+// Production agent animation: one step-by-step run on a loop
+const s = document.getElementById('g');
+const logEl = document.getElementById('log'), stepEl = document.getElementById('stepn');
+const tools = ['Data analysis','Charts','Predictions','Optimization','Document search'];
+// tool: index into tools, or -1 for agent-only steps
+const run = [
+  {u:0, tool:-1, txt:'<i>User A</i> asks: which mill settings give the target particle size?'},
+  {u:0, tool:4, txt:'Agent reasons with Qwen2.5 and calls <i>Document search</i> for related experiments'},
+  {u:0, tool:0, txt:'Calls <i>Data analysis</i> on the process data'},
+  {u:0, tool:2, txt:'Calls <i>Predictions</i> to estimate outcomes for candidate settings'},
+  {u:0, tool:3, txt:'Calls <i>Optimization</i> to search for the best settings automatically'},
+  {u:0, tool:1, txt:'Calls <i>Charts</i> to visualise the recommended settings'},
+  {u:0, tool:-2, txt:'Answer returned to <i>User A</i>; state checkpointed, <i>User B</i> served in parallel'}
+];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let P = null;
+const curve = (a,b) => `M${a.x} ${a.y} C ${(a.x+b.x)/2} ${a.y}, ${(a.x+b.x)/2} ${b.y}, ${b.x} ${b.y}`;
+const bez = (a,b,t) => { const mx=(a.x+b.x)/2, u=1-t; return {x:u**3*a.x+3*u*u*t*mx+3*u*t*t*mx+t**3*b.x, y:u**3*a.y+3*u*u*t*a.y+3*u*t*t*b.y+t**3*b.y}; };
+const lerp = (a,b,t) => ({x:a.x+(b.x-a.x)*t, y:a.y+(b.y-a.y)*t});
+const draw = () => {
+  const W = s.clientWidth, H = s.clientHeight, n = W < 560;
+  const users = [0,1,2].map(i => n ? {x:W*(0.3+i*0.2), y:24} : {x:W*0.07, y:H*(0.32+i*0.18)});
+  const agent = n ? {x:W*0.5, y:H*0.33} : {x:W*0.42, y:H*0.42};
+  const ck = n ? {x:W*0.84, y:H*0.33} : {x:W*0.42, y:H*0.86};
+  const tp = tools.map((nm,i) => n ? (i<3 ? {x:W*(0.18+i*0.32), y:H*0.6} : {x:W*(i===3?0.3:0.7), y:H*0.8}) : {x:W*0.74, y:H*(0.17+i*0.17)});
+  P = {users, agent, ck, tp, n};
+  const r = n ? 34 : 46;
+  const bx = n ? 8 : W*0.2, by = n ? 56 : 8;
+  let o = `<defs><radialGradient id="ag" cx="40%" cy="35%"><stop offset="0" stop-color="#9db9ff"/><stop offset="1" stop-color="#3a63d8"/></radialGradient></defs>`;
+  for (let x = 20; x < W; x += 34) for (let y = 14; y < H; y += 34) o += `<circle cx="${x}" cy="${y}" r="1" fill="#1d2944"/>`;
+  o += `<rect x="${bx}" y="${by}" width="${W-bx-8}" height="${H-by-8}" rx="16" fill="none" stroke="#2c3d66" stroke-dasharray="6 6"/>`;
+  o += `<text class="gl" x="${W-22}" y="${n ? H-20 : by+22}" text-anchor="end">Local infrastructure, no cloud</text>`;
+  users.forEach((u,i) => { o += `<line x1="${u.x}" y1="${u.y}" x2="${agent.x}" y2="${agent.y}" stroke="#2c3d66" stroke-width="2" stroke-dasharray="4 6"/>`; });
+  tp.forEach((p,i) => { o += `<path id="e${i}" d="${curve(agent,p)}" stroke="#2c3d66" stroke-width="2" fill="none"/>`; });
+  o += `<line x1="${agent.x}" y1="${agent.y}" x2="${ck.x}" y2="${ck.y}" stroke="#2c3d66" stroke-width="2"/>`;
+  users.forEach((u,i) => { o += `<circle id="u${i}" cx="${u.x}" cy="${u.y}" r="${n?11:14}" fill="#121b31" stroke="#9aa7c4" stroke-width="2"/><text x="${u.x}" y="${u.y+5}" text-anchor="middle" style="font-size:12px;stroke:none">${'ABC'[i]}</text>`; });
+  o += n ? '' : `<text x="${users[0].x}" y="${users[0].y-26}" text-anchor="middle">Users</text>`;
+  o += `<circle id="halo" cx="${agent.x}" cy="${agent.y}" r="${r+14}" fill="none" stroke="#5b8cff" stroke-opacity=".25" stroke-width="10"/>`;
+  o += `<circle cx="${agent.x}" cy="${agent.y}" r="${r}" fill="url(#ag)"/>`;
+  o += `<text x="${agent.x}" y="${agent.y-2}" text-anchor="middle" style="stroke:none;fill:#06102a;font-weight:700">Agent</text><text x="${agent.x}" y="${agent.y+15}" text-anchor="middle" style="stroke:none;fill:#06102a;font-size:12px">Qwen2.5</text>`;
+  o += n ? `<text x="${agent.x-r-14}" y="${agent.y+5}" text-anchor="end">LangGraph</text>` : `<text x="${agent.x}" y="${agent.y+r+30}" text-anchor="middle">LangGraph agent</text>`;
+  o += `<rect id="ck" x="${ck.x-16}" y="${ck.y-12}" width="32" height="24" rx="5" fill="#121b31" stroke="#9aa7c4" stroke-width="2"/>`;
+  o += n ? `<text class="gl" x="${ck.x}" y="${ck.y+32}" text-anchor="middle">Checkpoint</text>` : `<text class="gl" x="${ck.x-28}" y="${ck.y+5}" text-anchor="end">State checkpoint (restart-safe)</text>`;
+  tp.forEach((p,i) => {
+    o += `<rect id="t${i}" x="${p.x-9}" y="${p.y-9}" width="18" height="18" rx="4" fill="#121b31" stroke="#ff7a59" stroke-width="2"/>`;
+    o += n ? `<text x="${p.x}" y="${p.y+28}" text-anchor="middle">${p.n||tools[i]}</text>` : `<text x="${p.x+20}" y="${p.y+5}">${tools[i]}</text>`;
+  });
+  o += `<circle id="tok" r="7" fill="#ff7a59" cx="${agent.x}" cy="${agent.y}"/><circle id="tok2" r="5" fill="#5b8cff" cx="${users[1].x}" cy="${users[1].y}"/>`;
+  s.innerHTML = o;
+};
+const showLog = k => {
+  logEl.innerHTML = run.slice(0, k+1).map((r,i) => `<li class="${i===k?'on':''}">${r.txt}</li>`).join('');
+  stepEl.textContent = `Step ${k+1} of ${run.length}`;
+};
+const STEP = 2600; let t0 = performance.now(), last = -1;
+const tick = now => {
+  if (P) {
+    const el = Math.max(0, now - t0), total = STEP * run.length + 1400;
+    const e = el % total, k = Math.min(run.length - 1, Math.floor(e / STEP)), f = Math.min(1, (e - k*STEP) / STEP);
+    if (k !== last) { last = k; showLog(k); }
+    const st = run[k], tok = document.getElementById('tok'), tok2 = document.getElementById('tok2');
+    let p;
+    if (st.tool === -1) p = lerp(P.users[0], P.agent, Math.min(1, f*1.4));
+    else if (st.tool === -2) p = f < .45 ? lerp(P.agent, P.ck, Math.sin(f/.45*Math.PI)) : lerp(P.agent, P.users[0], Math.min(1,(f-.45)/.45));
+    else p = f < .5 ? bez(P.agent, P.tp[st.tool], f/.5) : bez(P.agent, P.tp[st.tool], 1-(f-.5)/.5);
+    if (tok) { tok.setAttribute('cx', p.x); tok.setAttribute('cy', p.y); }
+    // second user's request runs in parallel, to show multi-user
+    const g = (el % 5200) / 5200, q = g < .5 ? lerp(P.users[1], P.agent, g/.5) : lerp(P.agent, P.users[1], (g-.5)/.5);
+    if (tok2) { tok2.setAttribute('cx', q.x); tok2.setAttribute('cy', q.y); }
+    tools.forEach((_,i) => { const t = document.getElementById('t'+i), e2 = document.getElementById('e'+i); const on = st.tool === i && f > .3 && f < .75;
+      if (t) t.setAttribute('fill', on ? '#ff7a59' : '#121b31'); if (e2) e2.setAttribute('stroke', st.tool === i ? '#5b8cff' : '#2c3d66'); });
+    const ck = document.getElementById('ck'); if (ck) ck.setAttribute('stroke', (f > .8 || st.tool === -2) ? '#5b8cff' : '#9aa7c4');
+    const u0 = document.getElementById('u0'); if (u0) u0.setAttribute('stroke', '#ff7a59');
+  }
+  requestAnimationFrame(tick);
+};
+const ro = new ResizeObserver(draw); ro.observe(s); draw();
+if (!reduce) requestAnimationFrame(tick); else showLog(run.length - 1);
+}
+</script>
+</body>
+</html>
