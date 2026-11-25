@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hardik Sakpal Portfolio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='10' fill='%230f1a14'/%3E%3Cg stroke='%236f8f5c' stroke-width='1.6'%3E%3Cline x1='9' y1='8' x2='35' y2='22'/%3E%3Cline x1='9' y1='22' x2='35' y2='8'/%3E%3Cline x1='9' y1='22' x2='35' y2='36'/%3E%3Cline x1='9' y1='36' x2='35' y2='22'/%3E%3C/g%3E%3Cg stroke='%23eef2ea' stroke-width='3.4' stroke-linecap='round'%3E%3Cline x1='9' y1='8' x2='9' y2='36'/%3E%3Cline x1='35' y1='8' x2='35' y2='36'/%3E%3Cline x1='9' y1='22' x2='35' y2='22'/%3E%3C/g%3E%3Ccircle cx='35' cy='22' r='4.6' fill='%23f0a46b'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -11,10 +12,10 @@
 /* VOICE confident engineer's portfolio, quiet and precise
    IDEA a control-room view of his own agent: a question routed through a local LLM to tools, answers coming back
    PICTURE full-width live graph of the LangGraph agent: user, agent, local model, five tool families, a token travelling the route
-   COLOUR deep night ground #080d19 (as in the reference), white ink, electric blue #5b8cff lead, coral #ff7a59 accent for results
+   COLOUR deep night ground #0f1a14 (as in the reference), white ink, electric blue #a9c98a lead, coral #f0a46b accent for results
    TYPE Manrope 800 display + DM Sans text
    LAYOUT laptop: name and lead across the top, graph band beneath, figures strip; phone: stacked, graph shorter */
-:root{color-scheme:dark;--bg:#080d19;--bg2:#0e1527;--card:#121b31;--line:#22304f;--ink:#eef2fb;--mute:#9aa7c4;--blue:#5b8cff;--coral:#ff7a59}
+:root{color-scheme:dark;--bg:#0f1a14;--bg2:#15231b;--card:#1b2b22;--line:#2b3f32;--ink:#eef2ea;--mute:#a6b5a8;--blue:#a9c98a;--coral:#f0a46b}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "DM Sans",system-ui,sans-serif;overflow-x:clip}
@@ -29,7 +30,9 @@ p{margin:0}
 nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(5vw,16px);flex-wrap:wrap}
 .logo{font:800 18px Manrope,sans-serif;text-decoration:none}
-.logo span{color:var(--blue)}
+.logo{display:inline-flex;align-items:center;gap:10px;min-height:44px}
+.logo .lt{font:800 19px Manrope,sans-serif;letter-spacing:.02em;color:var(--ink)}
+.logo:hover .mark circle:last-child{fill:#f6bf93}
 .links{display:flex;gap:4px;flex-wrap:wrap}
 .links a{text-decoration:none;color:var(--mute);padding:10px 12px;border-radius:8px;font-size:15px}
 .links a:hover,.links a:focus-visible{color:var(--ink);background:var(--card);outline:none}
@@ -40,7 +43,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 .lead{color:var(--mute);font-size:17px;max-width:62ch}
 .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 .btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:10px;font-weight:700;text-decoration:none;border:1px solid var(--line)}
-.btn.main{background:var(--blue);border-color:var(--blue);color:#06102a}
+.btn.main{background:var(--blue);border-color:var(--blue);color:#13201a}
 .btn:hover{filter:brightness(1.1)}
 .btn:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
 .mail{margin-top:12px;color:var(--mute);font-size:14px}
@@ -79,7 +82,7 @@ p,ul.pts li{text-align:justify;hyphens:auto}
 .when{color:var(--mute);font-size:15px;white-space:nowrap}
 .org{color:var(--blue);font-weight:500;margin-top:4px}
 .what{font-style:italic;color:var(--mute);font-size:15px;margin-top:2px}
-ul.pts{margin:12px 0 0;padding-left:20px;color:#cdd5e8;max-width:80ch}
+ul.pts{margin:12px 0 0;padding-left:20px;color:#d3dccf;max-width:80ch}
 ul.pts li{margin-top:6px}
 ul.pts li::marker{color:var(--blue)}
 strong{color:var(--ink)}
@@ -87,7 +90,7 @@ strong{color:var(--ink)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column}
 .card .meta{color:var(--mute);font-size:14px;margin-top:6px}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:18px}
-.tags span{font-size:13px;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--blue) 16%,transparent);color:#c8d6ff}
+.tags span{font-size:13px;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--blue) 16%,transparent);color:#d6e4c6}
 .skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 .skills .card h3{margin-bottom:14px}
 .skills .tags{margin-top:0;padding-top:0}
@@ -105,7 +108,7 @@ h1 em,h2 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-
 .top{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:center;gap:clamp(28px,4vw,56px)}
 .photo{margin:0;position:relative}
 .photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:62% 30%;border-radius:20px;border:1px solid var(--line)}
-.tagline{margin-top:30px;font:500 14px "DM Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#c8d6ff;text-align:center}
+.tagline{margin-top:30px;font:500 14px "DM Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#d6e4c6;text-align:center}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .totop{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--ink);text-decoration:none;font-weight:500}
 .totop:hover,.totop:focus-visible{color:var(--blue);outline:none}
@@ -114,24 +117,21 @@ h1 em,h2 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-
 .xl a{display:inline-flex;align-items:center;gap:8px;min-height:44px;text-decoration:none;font-weight:500;color:var(--ink);border-bottom:1px solid transparent}
 .xl a:hover,.xl a:focus-visible{border-bottom-color:currentColor;outline:none}
 .xl a span{font-size:18px}
-.talk{--g:#243427;background:var(--g);color:#eef2ea}
-.tgrid{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,1fr);gap:32px;align-items:center}
-.talk .eye{color:#d6e4c6;margin-bottom:28px}
-.talk .d{width:9px;height:9px;border-radius:50%;background:#a9c98a}
-.big{font-size:clamp(42px,6.2vw,88px);font-weight:500;letter-spacing:-.04em;line-height:1;margin:0;color:#eef2fb}
-.big em{color:#d4e4bf}
-.talk .xl a{color:#eef2ea}
-.mail2{color:#b9c8ae;font-size:14px;margin-top:4px;text-align:left}
-.paper{display:inline-flex;align-items:center;min-height:62px;padding:0 28px;margin-top:22px;background:#f2f0ea;color:#243427;text-decoration:none;font-size:17px}
-.paper:hover{background:#fff}
-.paper:focus-visible{outline:2px solid #d4e4bf;outline-offset:3px}
-.rings{width:100%;max-width:420px;justify-self:center}
-.rings circle{fill:none;stroke:#3d5240;stroke-width:1}
-.star line{stroke:#c9ddb0;stroke-width:2.5;stroke-linecap:round}
-.star{transform-origin:200px 200px;animation:spin 24s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media(max-width:860px){.tgrid{grid-template-columns:minmax(0,1fr)}.rings{max-width:150px;justify-self:start;order:-1}.photo{max-width:360px}}
-@media(prefers-reduced-motion:reduce){.star{animation:none}}
+.talk{background:#f2efe6;color:#1b2b22}
+.tgrid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:32px;align-items:center}
+.talk .eye{color:#4d6b3d;margin-bottom:28px}
+.talk .d{width:9px;height:9px;border-radius:50%;background:#e08a4f}
+.big{font-size:clamp(42px,6.2vw,88px);font-weight:500;letter-spacing:-.04em;line-height:1;margin:0;color:#13201a}
+.big em{color:#5d7d48}
+.talk .xl a{color:#13201a}
+.mail2{color:#5a6b5e;font-size:14px;margin-top:4px;text-align:left}
+.paper{display:inline-flex;align-items:center;min-height:62px;padding:0 28px;margin-top:22px;background:#13201a;color:#f2efe6;text-decoration:none;font-size:17px;border-radius:4px}
+.paper:hover{background:#2b3f32}
+.paper:focus-visible{outline:2px solid #e08a4f;outline-offset:3px}
+.net{position:relative;height:clamp(300px,30vw,400px)}
+.net svg{position:absolute;inset:0;width:100%;height:100%}
+.net .cap2{position:absolute;left:0;right:0;bottom:-6px;text-align:center;font:500 12px "DM Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#5a6b5e}
+@media(max-width:860px){.tgrid{grid-template-columns:minmax(0,1fr)}.net{height:240px;order:-1}.photo{max-width:360px}}
 
 @media(max-width:860px){.live{grid-template-columns:minmax(0,1fr)}.top,.about,.contact{grid-template-columns:minmax(0,1fr)}.proj,.skills,.edu{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.links a{padding:10px 8px;font-size:14px}.fig{height:460px}.tl>li{padding-left:32px}}
@@ -140,7 +140,7 @@ h1 em,h2 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-
 </head>
 <body>
 <nav><div class="wrap">
-  <a class="logo" href="#top">HRS<span>.</span></a>
+  <a class="logo" href="#top" aria-label="HRS, back to top"><svg class="mark" width="34" height="34" viewBox="0 0 44 44" aria-hidden="true"><g stroke="#6f8f5c" stroke-width="1.4"><line x1="9" y1="8" x2="35" y2="22"/><line x1="9" y1="22" x2="35" y2="8"/><line x1="9" y1="22" x2="35" y2="36"/><line x1="9" y1="36" x2="35" y2="22"/></g><g stroke="#eef2ea" stroke-width="3" stroke-linecap="round"><line x1="9" y1="8" x2="9" y2="36"/><line x1="35" y1="8" x2="35" y2="36"/><line x1="9" y1="22" x2="35" y2="22"/></g><g fill="#0f1a14" stroke="#eef2ea" stroke-width="2"><circle cx="9" cy="8" r="3.4"/><circle cx="9" cy="22" r="3.4"/><circle cx="9" cy="36" r="3.4"/><circle cx="35" cy="8" r="3.4"/><circle cx="35" cy="36" r="3.4"/></g><circle cx="35" cy="22" r="4" fill="#f0a46b"/></svg><span class="lt">HRS</span></a>
   <div class="links">
     <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">What I work with</a><a href="#contact">Contact</a><a href="Hardik_Ravindra_Sakpal_CV.pdf" target="_blank" rel="noopener">Resume</a>
   </div>
@@ -209,9 +209,9 @@ h1 em,h2 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-
   <div class="skills" id="sk"></div>
   <div class="edu">
     <div class="card"><h3>Technische Universität Braunschweig</h3><p class="meta">M.Sc. Computational Sciences in Engineering · 2025</p>
-      <p style="margin-top:12px;color:#cdd5e8;font-size:15px">Machine Learning with Neural Networks, Pattern Recognition, Scientific Machine Learning, Data-Driven Material Modeling, Numerical Methods for ODEs/PDEs, Advanced Computerlab Data Science</p></div>
+      <p style="margin-top:12px;color:#d3dccf;font-size:15px">Machine Learning with Neural Networks, Pattern Recognition, Scientific Machine Learning, Data-Driven Material Modeling, Numerical Methods for ODEs/PDEs, Advanced Computerlab Data Science</p></div>
     <div class="card"><h3>1st Place, Neural Art Contest</h3><p class="meta">WS 2022/23</p>
-      <p style="margin-top:12px;color:#cdd5e8;font-size:15px">Advanced Data Science Lab, DLR Institute of Lightweight Systems &amp; TU Braunschweig.</p></div>
+      <p style="margin-top:12px;color:#d3dccf;font-size:15px">Advanced Data Science Lab, DLR Institute of Lightweight Systems &amp; TU Braunschweig.</p></div>
   </div>
 </div></section>
 
@@ -227,7 +227,7 @@ h1 em,h2 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-
     <p class="mail2">hardiksakpal97@outlook.com</p>
     <a class="paper" href="Hardik_Ravindra_Sakpal_CV.pdf" target="_blank" rel="noopener" download>Download resume</a>
   </div>
-  <svg class="rings" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="196"/><circle cx="200" cy="200" r="130"/><g class="star"><line x1="200" y1="176" x2="200" y2="224"/><line x1="176" y1="200" x2="224" y2="200"/><line x1="183" y1="183" x2="217" y2="217"/><line x1="217" y1="183" x2="183" y2="217"/></g></svg>
+  <div class="net" aria-hidden="true"><svg id="nn"></svg><p class="cap2">Signal in · insight out</p></div>
 </div></section>
 
 <footer><div class="wrap foot"><span>© 2026 Hardik Ravindra Sakpal</span><a class="totop" href="#top">Back to top <span aria-hidden="true">↑</span></a></div></footer>
@@ -301,26 +301,26 @@ const draw = () => {
   P = {users, agent, ck, tp, n};
   const r = n ? 34 : 46;
   const bx = n ? 8 : W*0.2, by = n ? 56 : 8;
-  let o = `<defs><radialGradient id="ag" cx="40%" cy="35%"><stop offset="0" stop-color="#9db9ff"/><stop offset="1" stop-color="#3a63d8"/></radialGradient></defs>`;
-  for (let x = 20; x < W; x += 34) for (let y = 14; y < H; y += 34) o += `<circle cx="${x}" cy="${y}" r="1" fill="#1d2944"/>`;
-  o += `<rect x="${bx}" y="${by}" width="${W-bx-8}" height="${H-by-8}" rx="16" fill="none" stroke="#2c3d66" stroke-dasharray="6 6"/>`;
+  let o = `<defs><radialGradient id="ag" cx="40%" cy="35%"><stop offset="0" stop-color="#d4e6bf"/><stop offset="1" stop-color="#7fa463"/></radialGradient></defs>`;
+  for (let x = 20; x < W; x += 34) for (let y = 14; y < H; y += 34) o += `<circle cx="${x}" cy="${y}" r="1" fill="#1f3026"/>`;
+  o += `<rect x="${bx}" y="${by}" width="${W-bx-8}" height="${H-by-8}" rx="16" fill="none" stroke="#31473a" stroke-dasharray="6 6"/>`;
   o += `<text class="gl" x="${W-22}" y="${n ? H-20 : by+22}" text-anchor="end">Local infrastructure, no cloud</text>`;
-  users.forEach((u,i) => { o += `<line x1="${u.x}" y1="${u.y}" x2="${agent.x}" y2="${agent.y}" stroke="#2c3d66" stroke-width="2" stroke-dasharray="4 6"/>`; });
-  tp.forEach((p,i) => { o += `<path id="e${i}" d="${curve(agent,p)}" stroke="#2c3d66" stroke-width="2" fill="none"/>`; });
-  o += `<line x1="${agent.x}" y1="${agent.y}" x2="${ck.x}" y2="${ck.y}" stroke="#2c3d66" stroke-width="2"/>`;
-  users.forEach((u,i) => { o += `<circle id="u${i}" cx="${u.x}" cy="${u.y}" r="${n?11:14}" fill="#121b31" stroke="#9aa7c4" stroke-width="2"/><text x="${u.x}" y="${u.y+5}" text-anchor="middle" style="font-size:12px;stroke:none">${'ABC'[i]}</text>`; });
+  users.forEach((u,i) => { o += `<line x1="${u.x}" y1="${u.y}" x2="${agent.x}" y2="${agent.y}" stroke="#31473a" stroke-width="2" stroke-dasharray="4 6"/>`; });
+  tp.forEach((p,i) => { o += `<path id="e${i}" d="${curve(agent,p)}" stroke="#31473a" stroke-width="2" fill="none"/>`; });
+  o += `<line x1="${agent.x}" y1="${agent.y}" x2="${ck.x}" y2="${ck.y}" stroke="#31473a" stroke-width="2"/>`;
+  users.forEach((u,i) => { o += `<circle id="u${i}" cx="${u.x}" cy="${u.y}" r="${n?11:14}" fill="#1b2b22" stroke="#a6b5a8" stroke-width="2"/><text x="${u.x}" y="${u.y+5}" text-anchor="middle" style="font-size:12px;stroke:none">${'ABC'[i]}</text>`; });
   o += n ? '' : `<text x="${users[0].x}" y="${users[0].y-26}" text-anchor="middle">Users</text>`;
-  o += `<circle id="halo" cx="${agent.x}" cy="${agent.y}" r="${r+14}" fill="none" stroke="#5b8cff" stroke-opacity=".25" stroke-width="10"/>`;
+  o += `<circle id="halo" cx="${agent.x}" cy="${agent.y}" r="${r+14}" fill="none" stroke="#a9c98a" stroke-opacity=".25" stroke-width="10"/>`;
   o += `<circle cx="${agent.x}" cy="${agent.y}" r="${r}" fill="url(#ag)"/>`;
-  o += `<text x="${agent.x}" y="${agent.y-2}" text-anchor="middle" style="stroke:none;fill:#06102a;font-weight:700">Agent</text><text x="${agent.x}" y="${agent.y+15}" text-anchor="middle" style="stroke:none;fill:#06102a;font-size:12px">Qwen2.5</text>`;
+  o += `<text x="${agent.x}" y="${agent.y-2}" text-anchor="middle" style="stroke:none;fill:#13201a;font-weight:700">Agent</text><text x="${agent.x}" y="${agent.y+15}" text-anchor="middle" style="stroke:none;fill:#13201a;font-size:12px">Qwen2.5</text>`;
   o += n ? `<text x="${agent.x-r-14}" y="${agent.y+5}" text-anchor="end">LangGraph</text>` : `<text x="${agent.x}" y="${agent.y+r+30}" text-anchor="middle">LangGraph agent</text>`;
-  o += `<rect id="ck" x="${ck.x-16}" y="${ck.y-12}" width="32" height="24" rx="5" fill="#121b31" stroke="#9aa7c4" stroke-width="2"/>`;
+  o += `<rect id="ck" x="${ck.x-16}" y="${ck.y-12}" width="32" height="24" rx="5" fill="#1b2b22" stroke="#a6b5a8" stroke-width="2"/>`;
   o += n ? `<text class="gl" x="${ck.x}" y="${ck.y+32}" text-anchor="middle">Checkpoint</text>` : `<text class="gl" x="${ck.x-28}" y="${ck.y+5}" text-anchor="end">State checkpoint (restart-safe)</text>`;
   tp.forEach((p,i) => {
-    o += `<rect id="t${i}" x="${p.x-9}" y="${p.y-9}" width="18" height="18" rx="4" fill="#121b31" stroke="#ff7a59" stroke-width="2"/>`;
+    o += `<rect id="t${i}" x="${p.x-9}" y="${p.y-9}" width="18" height="18" rx="4" fill="#1b2b22" stroke="#f0a46b" stroke-width="2"/>`;
     o += n ? `<text x="${p.x}" y="${p.y+28}" text-anchor="middle">${p.n||tools[i]}</text>` : `<text x="${p.x+20}" y="${p.y+5}">${tools[i]}</text>`;
   });
-  o += `<circle id="tok" r="7" fill="#ff7a59" cx="${agent.x}" cy="${agent.y}"/><circle id="tok2" r="5" fill="#5b8cff" cx="${users[1].x}" cy="${users[1].y}"/>`;
+  o += `<circle id="tok" r="7" fill="#f0a46b" cx="${agent.x}" cy="${agent.y}"/><circle id="tok2" r="5" fill="#a9c98a" cx="${users[1].x}" cy="${users[1].y}"/>`;
   s.innerHTML = o;
 };
 const showLog = k => {
@@ -343,14 +343,54 @@ const tick = now => {
     const g = (el % 5200) / 5200, q = g < .5 ? lerp(P.users[1], P.agent, g/.5) : lerp(P.agent, P.users[1], (g-.5)/.5);
     if (tok2) { tok2.setAttribute('cx', q.x); tok2.setAttribute('cy', q.y); }
     tools.forEach((_,i) => { const t = document.getElementById('t'+i), e2 = document.getElementById('e'+i); const on = st.tool === i && f > .3 && f < .75;
-      if (t) t.setAttribute('fill', on ? '#ff7a59' : '#121b31'); if (e2) e2.setAttribute('stroke', st.tool === i ? '#5b8cff' : '#2c3d66'); });
-    const ck = document.getElementById('ck'); if (ck) ck.setAttribute('stroke', (f > .8 || st.tool === -2) ? '#5b8cff' : '#9aa7c4');
-    const u0 = document.getElementById('u0'); if (u0) u0.setAttribute('stroke', '#ff7a59');
+      if (t) t.setAttribute('fill', on ? '#f0a46b' : '#1b2b22'); if (e2) e2.setAttribute('stroke', st.tool === i ? '#a9c98a' : '#31473a'); });
+    const ck = document.getElementById('ck'); if (ck) ck.setAttribute('stroke', (f > .8 || st.tool === -2) ? '#a9c98a' : '#a6b5a8');
+    const u0 = document.getElementById('u0'); if (u0) u0.setAttribute('stroke', '#f0a46b');
   }
   requestAnimationFrame(tick);
 };
 const ro = new ResizeObserver(draw); ro.observe(s); draw();
 if (!reduce) requestAnimationFrame(tick); else showLog(run.length - 1);
+// Contact: a small neural network passing signals forward
+const nn = document.getElementById('nn');
+const layers = [3,5,5,4,2];
+let N = null, pulses = [], lastSpawn = 0;
+const layout = () => {
+  const W = nn.clientWidth, H = nn.clientHeight, padX = 24, padY = 28;
+  const nodes = layers.map((c,li) => Array.from({length:c}, (_,k) => ({x: padX + li*(W-2*padX)/(layers.length-1), y: padY + (k+0.5)*(H-2*padY-20)/c + (H-2*padY-20)*0, glow:0})));
+  let o = '';
+  for (let li=0; li<layers.length-1; li++) for (const a of nodes[li]) for (const b of nodes[li+1]) o += `<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="#c9cfbf" stroke-width="1"/>`;
+  nodes.forEach((L,li) => L.forEach((n,k) => { o += `<circle id="n${li}_${k}" cx="${n.x}" cy="${n.y}" r="${li===layers.length-1?9:7}" fill="#f2efe6" stroke="#13201a" stroke-width="2"/>`; }));
+  o += '<g id="pl"></g>';
+  nn.innerHTML = o; N = nodes; pulses = [];
+};
+const spawn = (li, k) => {
+  if (li >= layers.length-1) return;
+  const picks = N[li+1].map((_,j)=>j).sort(()=>Math.random()-.5).slice(0, 1 + (Math.random()<.5));
+  picks.forEach(j => pulses.push({li, k, j, t:0, sp: .9 + Math.random()*.5}));
+};
+let prev = performance.now();
+const loop = now => {
+  const dt = Math.min(.05, (now - prev)/1000); prev = now;
+  if (N) {
+    if (now - lastSpawn > 900) { lastSpawn = now; spawn(0, Math.floor(Math.random()*layers[0])); }
+    let g = '';
+    pulses = pulses.filter(p => {
+      p.t += dt * p.sp;
+      const a = N[p.li][p.k], b = N[p.li+1][p.j];
+      if (p.t >= 1) { b.glow = 1; if (Math.random() < .85) spawn(p.li+1, p.j); return false; }
+      g += `<circle cx="${a.x+(b.x-a.x)*p.t}" cy="${a.y+(b.y-a.y)*p.t}" r="3.6" fill="#e08a4f"/>`;
+      return true;
+    });
+    if (pulses.length > 40) pulses = pulses.slice(-40);
+    const pl = document.getElementById('pl'); if (pl) pl.innerHTML = g;
+    N.forEach((L,li) => L.forEach((n,k) => { n.glow = Math.max(0, n.glow - dt*1.4); const c = document.getElementById(`n${li}_${k}`); if (c) c.setAttribute('fill', n.glow > .05 ? `color-mix(in srgb, #5d7d48 ${Math.round(n.glow*100)}%, #f2efe6)` : '#f2efe6'); }));
+  }
+  requestAnimationFrame(loop);
+};
+const ro2 = new ResizeObserver(layout); ro2.observe(nn); layout();
+if (!reduce) requestAnimationFrame(loop);
+else if (N) N[2].forEach((_,k)=>{ const c=document.getElementById(`n2_${k}`); if(c) c.setAttribute('fill','#a9c98a'); });
 }
 </script>
 </body>
